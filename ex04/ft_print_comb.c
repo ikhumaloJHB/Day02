@@ -6,40 +6,47 @@
 /*   By: ikhumalo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 17:05:20 by ikhumalo          #+#    #+#             */
-/*   Updated: 2020/06/20 09:44:26 by ikhumalo         ###   ########.fr       */
+/*   Updated: 2020/06/21 11:53:15 by ikhumalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int ft_print_comb(void){
+void ft_print_comb(void){
 
-	int l;
-	int m;
-	int num[10];
-	int temp;
-	int t =4;	
+   int arr[3] = {48,48,48};
+
+   while(arr[0] <= 57){
+
+	   if((arr[0] < arr[1]) && (arr[1] < arr[2])){
 
 
-	
-        
-		num[0]=1;
-		num[1]=3;
-		num[2]=7;	
-			
-       while(l<=t){
-		   while(m<=t-1){
-			   temp = num[m];
-			   num[m] = num[m+1];
-			   num[m+1] = temp;
-	            write(1,&num[m],1);
-	              m++;
-	        };
-            l++;
-	    };
+		   write(1,&arr[0],1);
+		   write(1,&arr[1],2);
+		   write(1,&arr[2],3);
 
-	   return 0;
-};
+		   if(arr[0] != 55){
+			   write(1,",",1);
+		   }
+	       
+	       if(arr[0] != 55){
+		        write(1," ",1);
+		   }
+       }
+
+       if(arr[2]++ >= 57){
+	      arr[2] = 48;
+          arr[1] ++;
+        }
+
+
+        if(arr[1] == 58){
+	      arr[1] = 48;
+          arr[0]++;
+		 }
+    }	
+}   
+
 
 int main(){
 
